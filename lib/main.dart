@@ -36,7 +36,7 @@ class MyHomePage extends StatelessWidget {
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
+              children: [
                 const Text(
                   'You have pushed the button this many times:',
                 ),
@@ -50,6 +50,16 @@ class MyHomePage extends StatelessWidget {
           floatingActionButton: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              FloatingActionButton(
+                shape: const CircleBorder(),
+                onPressed: () {
+                  BlocProvider.of<CounterCubit>(context).updateState(sign: '0');
+                },
+                child: const Text('Reset'),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               FloatingActionButton(
                 shape: const CircleBorder(),
                 onPressed: () {
